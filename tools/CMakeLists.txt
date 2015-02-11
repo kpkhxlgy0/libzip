@@ -4,7 +4,9 @@ project(zip C)
 OPTION (ZIP_BUILD_LUA "Build build lua" ON)
 
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/../lib SRC_LIST)
-list(REMOVE_ITEM SRC_LIST ${CMAKE_CURRENT_SOURCE_DIR}/../lib/mkstemp.c)
+if (NOT WIN32)
+    list(REMOVE_ITEM SRC_LIST ${CMAKE_CURRENT_SOURCE_DIR}/../lib/mkstemp.c)
+endif ()
 IF (ZIP_BUILD_LUA)
     LIST (APPEND SRC_LIST
         ${CMAKE_CURRENT_SOURCE_DIR}/../lua-zip/lua_zip.c
