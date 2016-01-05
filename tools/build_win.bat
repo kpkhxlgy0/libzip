@@ -5,7 +5,7 @@ rd /q /s %DIR_TO%
 
 md %DIR_TO%
 cd %DIR_TO%
-cmake -G "Visual Studio 12 2013" ..
+cmake -G "Visual Studio 14 2015" ..
 cmake --build . --config Debug
 cmake --build . --config Release
 
